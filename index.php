@@ -42,8 +42,8 @@
 
     if($_SERVER['REQUEST_METHOD' ] == 'POST'){
         $user=isset($_POST['user'])? $_POST['user']:"";
-        $pass= isset($_POST['pwd'])? $_POST['pwd']:"";
-        $query ="SELECT userOwner, userName, userPwd FROM Users WHERE userName='".$user."' && userPwd='".$pass."'";
+        $pwd= isset($_POST['pwd'])? $_POST['pwd']:"";
+        $query ="SELECT userOwner, userName, userPwd FROM Users WHERE userName='".$user."' && userPwd='".md5($pwd)."'";
         $execute= mysqli_query($con, $query);
         if($execute->num_rows == 1 ){
             session_start();
