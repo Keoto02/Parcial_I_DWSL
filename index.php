@@ -19,7 +19,7 @@
                     </div>
                     <div class="inputbox">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" required name="pass">
+                        <input type="password" required name="pwd">
                         <label for="">Contraseña</label>
                     </div>
                     <div class="forget">
@@ -42,8 +42,8 @@
 
     if($_SERVER['REQUEST_METHOD' ] == 'POST'){
         $user=isset($_POST['user'])? $_POST['user']:"";
-        $pass= isset($_POST['pass'])? $_POST['pass']:"";
-        $query ="SELECT userOwner, userName, userPwd FROM usuarios WHERE userName='".$user."' && userPwd='".$pass."'";
+        $pass= isset($_POST['pwd'])? $_POST['pwd']:"";
+        $query ="SELECT userOwner, userName, userPwd FROM Users WHERE userName='".$user."' && userPwd='".$pass."'";
         $execute= mysqli_query($con, $query);
         if($execute->num_rows == 1 ){
             session_start();
