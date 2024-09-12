@@ -1,5 +1,5 @@
 <?php
-    include 'connection.php';
+    include '../../conf/conf.php';
 
     try 
     {

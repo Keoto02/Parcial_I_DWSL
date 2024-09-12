@@ -2,7 +2,7 @@
 // create_student_code.php
 
 // Incluir archivo de conexión a la base de datos
-include 'connection.php';
+include '../../conf/conf.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener datos del formulario

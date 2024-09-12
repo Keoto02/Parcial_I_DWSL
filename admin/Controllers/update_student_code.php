@@ -1,6 +1,6 @@
 <?php
     // Incluir archivo de conexión a la base de datos
-    include 'connection.php';
+    include '../../conf/conf.php';
 
     // Verificar si se recibió una solicitud POST
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

@@ -1,8 +1,13 @@
 <?php
-    include 'connection.php';
-
+    include '../../conf/conf.php';
+    
+    $search = "";
+    if (isset($_POST['search'])) {
+        $search = $_POST['search'];
+    }
     // Consulta para obtener los registros de carreras
-    $query = "SELECT * FROM Careers";
+    $query = "SELECT * FROM Careers 
+    WHERE name_career LIKE '%$search%'";
 
     try {
         // Preparar la consulta

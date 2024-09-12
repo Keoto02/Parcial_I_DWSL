@@ -1,15 +1,14 @@
 <?php
 
-$server = "localhost";
-$pass = "1234";
-$user = "root";
-$db = "dbUniversity";
+$db_host = 'localhost';
+$db_name = 'UniversityDB';
+$db_username = 'root';
+$db_password = '1234';
 
-$con = mysqli_connect($server, $user, $pass, $db);
-if ($con) {
-    //echo"Conexión realizada";
-}
-else {
-    echo "Error de conexión";
+try {
+    $connection = new PDO("mysql:host=$db_host;dbname=$db_name", $db_username, $db_password);
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Error al conectar a la base de datos: ".$e->getMessage();
 }
 ?>

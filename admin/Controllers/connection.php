@@ -17,24 +17,22 @@
         id_career_student INT,
         FOREIGN KEY (id_career_student) REFERENCES Careers(id_career) ON DELETE SET NULL
     );
-
+    
+    CREATE TABLE Users(
+		id INT PRIMARY KEY auto_increment,
+		userOwner VARCHAR(100),
+		userName VARCHAR(100),
+		userPwd VARCHAR(100)
+	);
 
     INSERT INTO careers VALUES (null, "Licenciatura en Informatica", "Carrera de Licenciatura en informatica");
+    INSERT INTO careers VALUES (null, "Ingeniería en desarrollo de software", "Carrera de Ingeniería en desarrollo de software");
+    INSERT INTO careers VALUES (null, "Licenciatura en psicología", "Carrera de Licenciatura en psicología");
 
-    INSERT INTO students VALUES (null, "Williams", "Rodriguez", "u20210444", 1)
-    */
-
-    //configuraciones de la base de datos
-    $db_host = 'localhost';
-    $db_name = 'UniversityDB';
-    $db_username = 'root';
-    $db_password = '';
+    INSERT INTO students VALUES (null, "Williams", "Rodriguez", "u20210444", 1);
+	INSERT INTO students VALUES (null, "Carlos", "Guerrero", "u20210475", 1);
     
-    // Conexion
-    try {
-        $connection = new PDO("mysql:host=$db_host;dbname=$db_name", $db_username, $db_password);
-        $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        echo "Error al conectar a la base de datos: ".$e->getMessage();
-    }
+	INSERT INTO Users VALUES(NULL, 'Carlos',  'u20210475', '202cb962ac59075b964b07152d234b70');
+	INSERT INTO Users VALUES(NULL, 'Williams',  'u20210444', 'caf1a3dfb505ffed0d024130f58c5cfa');
+    */
 ?>

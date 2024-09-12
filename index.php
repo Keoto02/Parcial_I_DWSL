@@ -40,19 +40,25 @@
 <?php
     include_once "./conf/conf.php";
 
-    if($_SERVER['REQUEST_METHOD' ] == 'POST'){
-        $user=isset($_POST['user'])? $_POST['user']:"";
-        $pwd= isset($_POST['pwd'])? $_POST['pwd']:"";
-        $query ="SELECT userOwner, userName, userPwd FROM Users WHERE userName='".$user."' && userPwd='".md5($pwd)."'";
-        $execute= mysqli_query($con, $query);
-        if($execute->num_rows == 1 ){
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $user = isset($_POST['user']) ? $_POST['user'] : "";
+        $pwd = isset($_POST['pwd']) ? $_POST['pwd'] : "";
+
+        $query = "SELECT userOwner, userName, userPwd FROM Users WHERE userName = :user AND userPwd = :pwd";
+        $stmt = $connection->prepare($query);
+    
+        $stmt->execute([
+            ':user' => $user,
+            ':pwd' => md5($pwd)
+        ]);
+    
+        if ($stmt->rowCount() == 1) {
             session_start();
-            while($theUser = mysqli_fetch_assoc($execute)) {
-                $_SESSION["user"] = $theUser['userOwner'];
-            }
-            header('Location: ./admin/index.php');
-        }else{
-            $error ="Error en el inicio de sesión";
+            $theUser = $stmt->fetch(PDO::FETCH_ASSOC);
+            $_SESSION["user"] = $theUser['userOwner'];
+            header('Location: ./admin/Views/index_student.php');
+        } else {
+            $error = "Error en el inicio de sesión";
         }
-}
+    }
 ?>

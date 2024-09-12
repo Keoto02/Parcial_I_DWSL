@@ -1,6 +1,6 @@
 <?php
 // Incluir el archivo de conexión a la base de datos
-include 'connection.php';
+include '../../conf/conf.php';
 
 try 
 {
