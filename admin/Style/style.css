@@ -1,0 +1,36 @@
+:root {
+    --univo-blue: #003366;
+    --univo-yellow: #FFD700;
+}
+.navbar {
+    background-color: var(--univo-blue) !important;
+}
+.navbar-nav {
+    margin-left: auto;
+}
+.navbar-brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+.btn-primary {
+    background-color: var(--univo-blue);
+    border-color: var(--univo-blue);
+}
+.btn-primary:hover {
+    background-color: #002244;
+    border-color: #002244;
+}
+.btn-success {
+    background-color: var(--univo-yellow);
+    border-color: var(--univo-yellow);
+    color: var(--univo-blue);
+}
+.btn-success:hover {
+    background-color: #e6c200;
+    border-color: #e6c200;
+    color: var(--univo-blue);
+}
+.thead-dark {
+    background-color: var(--univo-blue);
+    color: white;
+}
