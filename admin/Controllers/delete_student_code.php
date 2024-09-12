@@ -1,5 +1,4 @@
 <?php
-// Incluir el archivo de conexión a la base de datos
 include '../../conf/conf.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['idStudent'])) {

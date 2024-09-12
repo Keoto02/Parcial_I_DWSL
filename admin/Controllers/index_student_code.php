@@ -5,7 +5,6 @@ if (isset($_POST['search'])) {
     $search = $_POST['search'];
 }
 
-// Incluir archivo de conexión a la base de datos
 include '../../conf/conf.php';
     $query = "SELECT S.id_student, S.name_student, S.last_name_student, S.code_student, C.name_career
     FROM Students S

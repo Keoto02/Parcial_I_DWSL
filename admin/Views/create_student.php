@@ -1,11 +1,18 @@
+<?php
+session_start();
+if ($_SESSION['user'] == "") {
+    header("Location: ../../index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Nuevo Estudiante</title>
-    <!-- Agregar Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 
@@ -29,16 +36,14 @@
             <select class="form-control" id="careerStudent" name="careerStudent" required>
                 <option value="">Selecciona una carrera</option>
                     <?php 
-                    // Obtener todas las carreras disponibles
                     include '../Controllers/index_code.php';
-                    // Mostrar opciones para cada carrera
                     foreach ($careers as $career): ?>
                         <option value="<?php echo $career['id_career']; ?>"><?php echo $career['name_career']; ?>
                     </option>
                     <?php endforeach; ?>
             </select>
         </div>
-        <button type="submit" class="btn btn-success mt-4">Guardar Nuevo Estudiante</button>
+        <button type="submit" class="btn btn-primary mt-4">Guardar Nuevo Estudiante</button>
         <a href="./index_student.php" class="btn btn-danger mt-4">Regresar</a>
     </form>
 </div>
